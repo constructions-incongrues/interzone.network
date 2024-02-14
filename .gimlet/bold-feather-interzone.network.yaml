@@ -7,12 +7,10 @@ chart:
   version: 0.64.0
 values:
   buildImage: node:latest
-  buildScript: |-
+  buildScript: |+
     # !/usr/bin/env bash
 
-    npm install
-    npm run build
-  builtAssets: build/
+  builtAssets: /
   gitCloneUrl: https://github.com/constructions-incongrues/interzone.network.git
   gitRepository: constructions-incongrues/interzone.network
   gitSha: '{{ .SHA }}'
