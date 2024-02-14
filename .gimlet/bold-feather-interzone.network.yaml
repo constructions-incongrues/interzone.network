@@ -1,0 +1,23 @@
+app: interzone.network
+env: bold-feather
+namespace: default
+chart:
+  repository: https://chart.onechart.dev
+  name: static-site
+  version: 0.64.0
+values:
+  buildImage: node:latest
+  buildScript: |-
+    # !/usr/bin/env bash
+
+    npm install
+    npm run build
+  builtAssets: build/
+  gitCloneUrl: https://github.com/constructions-incongrues/interzone.network.git
+  gitRepository: constructions-incongrues/interzone.network
+  gitSha: '{{ .SHA }}'
+  ingress:
+    annotations: {}
+    host: interzone.app.tambouille.pastis-hosting.net
+    path: /
+    tlsEnabled: true
